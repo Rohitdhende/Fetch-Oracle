@@ -26,7 +26,7 @@ const Home = () => {
       {isCreateJSLoaded && (
         <>
           <Script
-            src="https://fetch-site.s3.eu-central-1.amazonaws.com/Graph.js"
+            src="./assets/js/graph.js"
             type="text/javascript"
             onReady={onScriptLoad}
           />

@@ -1134,7 +1134,7 @@
 		color: "#000000",
 		opacity: 0.00,
 		manifest: [
-			{src:"/images/Graph_atlas_.png", id:"Graph_atlas_"}
+			{src:"images/Graph_atlas_.png", id:"Graph_atlas_"}
 		],
 		preloads: []
 	};
