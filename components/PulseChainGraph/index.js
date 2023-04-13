@@ -34,7 +34,7 @@ const Home = () => {
       )}
       
        
-      <div style={{ minHeight: '600px' }}>
+      <div className="CanvasGraph">
         {areScriptsLoaded && (
           <AnimateCC
             animationName={'Graph'}

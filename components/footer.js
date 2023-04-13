@@ -24,12 +24,12 @@ const Footer = () => {
 
           <FooterMBX>
             <FooterSBX>
-              <img className="FooterLOGO"  src={LogoIMG.src} alt='Fetch Oracle' />
+              <Image className="FooterLOGO"  src={LogoIMG} alt='Fetch Oracle' />
             </FooterSBX>
             <FooterSBX className='v1'><Link href="#">Knowledge</Link>        <span>|</span>       <Link href="#">Whitepaper</Link></FooterSBX>
             <FooterSBX  className='v2'>
-              <Link href="#"><img src={TwitICO.src} alt='Fetch Oracle' /></Link>
-              <Link href="#"><img src={TeleICO.src} alt='Fetch Oracle' /></Link>
+              <Link href="#"><Image src={TwitICO} alt='Fetch Oracle' /></Link>
+              <Link href="#"><Image src={TeleICO} alt='Fetch Oracle' /></Link>
             </FooterSBX> 
           </FooterMBX>
           <FooterMBX02>
@@ -67,11 +67,24 @@ const FooterSBX = styled(FlexDiv)`
 
     &.v1{ justify-content: center; padding-top:15px;}
     &.v2{ justify-content: flex-end;  padding-top:15px; a{ padding:0 10px; :hover{  filter:brightness(1.2);}}}  
+
+    ${Media.sm}{ width:100%; 
+      &.v1{ width:70%; justify-content:flex-start; }
+      &.v2{ width:30%; }
+    }
+    ${Media.xs}{  justify-content:center; 
+      &.v1{ width:100%; justify-content:center; }
+      &.v2{ width:100%;  justify-content:center;}
+
+     }
+
+
+
 `
 const FooterMBX02 = styled(FlexDiv)`
   width:100%;  margin:0 auto; padding:0 22px; background-color:#fafafa;
 
-  p{ max-width:100%; font-size:16px; color:#180928; font-weight:300; }
+  p{ max-width:100%; font-size:16px; color:#180928; font-weight:300;  text-align:center;}
 
 `
 export default Footer;

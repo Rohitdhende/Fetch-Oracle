@@ -1,5 +1,6 @@
 //import npm packages
 import React, { useState, useEffect } from 'react';
+import { Mulish } from '@next/font/google';
 
 //import next js packages
 // import Head from 'next/head';
@@ -20,6 +21,13 @@ import { ParallaxProvider  } from 'react-scroll-parallax';
 import Header from '../components/header';
 import Script from 'next/script';
 
+//fonts declaration
+const mulish = Mulish({
+  weight: ['200', '300', '400', '500', '700'],
+  variable: '--mulish-font',
+  display: 'swap',
+  preload: false,
+});
 
 export default function MyApp({ Component, pageProps }) {
   const [isDark, setDarkTheme] = useState(true);
@@ -28,6 +36,12 @@ export default function MyApp({ Component, pageProps }) {
  
   return (
     <> 
+
+<style jsx global>{`
+        :root {
+          --mulish-font: ${mulish.style.fontFamily}; 
+        }
+      `}</style>
 
     <ParallaxProvider>
       <ThemeProvider theme={selectedTheme}>

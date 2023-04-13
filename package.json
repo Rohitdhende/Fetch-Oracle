@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@next/env": "^13.2.4",
+    "@next/font": "13.0.4",
     "@reach/dialog": "^0.15.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -21,7 +22,7 @@
     "dotenv": "^10.0.0",
     "fs": "^0.0.1-security",
     "glob": "^8.1.0",
-    "next": "13.0.4",
+    "next": "^13.3.0",
     "react": "18.2.0",
     "react-adobe-animate": "^3.1.0",
     "react-app-rewired": "^2.1.8",

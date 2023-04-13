@@ -20,38 +20,22 @@ export default class MyDocument extends Document {
         styles: (
           <>
           
-            <link
-              href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@100;300;400;500;700&display=swap"
+            {/* <link
+              href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;700&display=swap"
               rel="stylesheet"
-            />
-            <link
-              href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap"
-              rel="stylesheet"
-            />
-            <link
-              href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@100;300;400;500;700&display=swap"
-              rel="stylesheet"
-            />
-            <link
-              href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&display=swap"
-              rel="stylesheet"
-            />
-            <link
-              rel="stylesheet"
-              href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css"
-            />
+            />  */}
             {initialProps.styles}
             {sheet.getStyleElement()}
  
                 <body>
                 
-                <noscript
+                {/* <noscript
                   dangerouslySetInnerHTML={{
                     __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-54H8XPB"
                     height="0" width="0" style="display:none;visibility:hidden"></iframe>
                     `,
                   }}
-                />
+                /> */}
 
                 </body>
 

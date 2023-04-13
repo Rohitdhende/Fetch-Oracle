@@ -26,6 +26,7 @@ function Header(props) {
   const [isOpen, setIsOpen] = useState(false); 
   const [headerClass, setHeaderClass] = useState(false);
   const [headerUp, setHeaderUp] = useState(false);
+  const [isOpen3, setIsOpen3] = useState(false);
 
   const { setDarkTheme, setIsDarkThemeDisabled } = props;
   const [ isSMenuDisabled, setIsSMenuDisabled ] = useState(true);
@@ -38,7 +39,7 @@ function Header(props) {
 
   const handleScroll = () => {
     const currentScrollY = window.scrollY;
-    if (currentScrollY > 100) setHeaderClass(true);
+    if (currentScrollY > 1000) setHeaderClass(true);
     else setHeaderClass(false);
   };
 
@@ -54,21 +55,22 @@ function Header(props) {
         <Gs.Container> 
             <HeadMBX>
               <LogoBX> 
-              <img  src={LogoIMG02.src} alt='Fetch Oracle' />
- 
-                </LogoBX>
-              <NavigationBX> 
-                <Link href="#">Knowledge</Link>         
-                <Link href="#">Whitepaper</Link>   
-                  <Link href="#" className='icoLink'><img src={Twit_ICO.src} alt='twitter' /> </Link>  
-                  <Link href="#" className='icoLink'><img src={Tele_ICO.src} alt='telegram' /> </Link>   
+              <Image  src={LogoIMG02} alt='Fetch Oracle' /> 
+              </LogoBX>
+              <button className={'MMenu  ' + (isOpen3 ? 'active' : '')}
+              onClick={() => setIsOpen3((state) => !state)}>
+                <span></span> 
+                <span></span> 
+                <span></span> 
+              </button>
+
+              <NavigationBX className={(isOpen3 ? 'active' : '')}> 
+                <Link href="#" onClick={() => setIsOpen3((state) => false)}>Knowledge</Link>         
+                <Link href="#" onClick={() => setIsOpen3((state) => false)}>Whitepaper</Link>   
+                <Link href="#" onClick={() => setIsOpen3((state) => false)} className='icoLink'><Image src={Twit_ICO} alt='twitter' /> </Link>  
+                <Link href="#" onClick={() => setIsOpen3((state) => false)} className='icoLink'><Image src={Tele_ICO} alt='telegram' /> </Link>   
               </NavigationBX>
-            </HeadMBX>  
-
-
-
-
-
+            </HeadMBX>   
         </Gs.Container>
      </HeaderOuter>
   );
@@ -89,34 +91,81 @@ const FlexDiv = styled.div`
 `;
 
 const HeaderOuter = styled.div`
-  position: fixed; top: 0; left: 0; right: 0; z-index: 1010; padding:15px 0; transition: all 500ms;
- 
- 
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1010; padding:15px 0; transition: all 500ms; 
   &.fly {
     background: url(${GrunjPatt.src}) 50% 50% repeat ;
    padding:8px 0;
   }
+  ${Media.sm} {  &.fly { padding:10px 0; }
+
 `;
 
 const HeadMBX = styled(FlexDiv)`
   width:100%; max-width:1400px;
+
+
+  .MMenu { 
+    display:none;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    position: absolute; border:none; background: transparent;
+    right: 15px;
+    top: 28px;
+    width: 44px;
+    height: 42px;
+    padding: 6px 2px;
+    span {
+      width: 100%;
+      height: 2px;
+      background:#fff;
+      display: block;
+      margin: 4px;
+      transition: all 100ms;
+    }
+    &.active {
+      span:nth-child(01) {
+        transform: rotate(-45deg) translate(-4px, 3px);
+      }
+      span:nth-child(02) {
+        display: none;
+      }
+      span:nth-child(03) {
+        transform: rotate(45deg) translate(-7px, -6px);
+      }
+    }
+  }
+  ${Media.sm} {
+  .MMenu{display:flex}
+  }
+
 `
 const LogoBX = styled(FlexDiv)`
     width:100%; max-width:185px; transition: all ease-in-out 600ms !important; 
     img{ max-width:100%; height:auto; }  
-    .fly & {width:100%;  
-    }
+    .fly & {max-width:160px; } 
+    ${Media.sm} { 
 
+     max-width:120px; margin-right:auto;
+     .fly & {max-width:120px; } 
+
+    }
 
 `
  
 const NavigationBX = styled(FlexDiv)`
   margin:0 0 0 auto; 
-  a{ font-size:17px; padding:4px 10px; margin:0 11px; color:#fff; display:inline-block;  :hover{ text-decoration:underline;} 
+  a{ font-size:17px; padding:4px 10px; margin:0 11px; color:#fff; display:inline-block;  :hover{ text-decoration:underline;}  
+  &.icoLink{ padding:4px 0; margin:0 4px; :hover{ filter:brightness(1.2);} } }
+  
+  ${Media.sm} { visibility:hidden; opacity:0;   background: url(${GrunjPatt.src}) 50% 50% repeat ;   width:100%; padding:5px 0 0 0; align-items:flex-start; margin-top:15px; height:0px; transition:all 600ms;
+    &.active{visibility:visible; opacity:1; height:auto; } 
 
-  &.icoLink{ padding:4px 0; margin:0 4px; :hover{ filter:brightness(1.2);} }
+    a{ font-size:17px; padding:12px 10px; width:calc(100% - 15px); border-bottom:1px solid #5379b2; margin:0 11px; 
+      &.icoLink{ padding:4px 10px; margin:10px 0 0 0; border-bottom:none; display:inline-block; width:auto; }
+    }
+  }
 
-}
 
 `
 

@@ -10,7 +10,8 @@ Gs.GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;  
-    font-family: 'Mulish', sans-serif;
+    /* font-family: 'Mulish', sans-serif; */
+    font-family: var(--mulish-font), sans-serif;
     background: url(${GrunjPatt.src}) 50% 50% repeat; font-weight:400;
     color:#fff; 
   }  
@@ -18,13 +19,7 @@ Gs.GlobalStyle = createGlobalStyle`
   img{  max-width:100%; height:auto;}
 
   h1,h2,h3,h4,h5{font-size:inherit; font-weight:inherit; margin:0; padding:0;}
-/* 
-  .goog-te-banner-frame.skiptranslate {
-    display: none !important;
-    } 
-body {
-    top: 0px !important; 
-    } */
+ 
   
   html {
   --scroll-behavior: smooth;
@@ -50,6 +45,11 @@ body {
   overflow: hidden;
 } 
 
+.CanvasGraph{ min-height:520px; width:100%; display:block;}
+
+${Media.sm} { 
+.CanvasGraph{ display:none;}
+}
 `;
 
 Gs.MainBox = styled.div`
